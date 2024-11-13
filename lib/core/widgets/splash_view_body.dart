@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gift_planner/constant.dart';
 
+import '../../views/home_view.dart';
+
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
@@ -26,15 +28,23 @@ class SplashViewBody extends StatelessWidget {
           Animate(
             autoPlay: true,
             effects: [
-              FadeEffect(duration: 1100.ms),
+              FadeEffect(duration: 1000.ms),
             ],
-            onComplete: (controller) {},
+            onComplete: (controller) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeView(),
+                ),
+              );
+            },
             child: const Text(
               'Gift Wizard',
               style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w600,
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
                 color: Constant.stringColor,
+                fontFamily: 'ARIAL',
               ),
             ),
           ),
